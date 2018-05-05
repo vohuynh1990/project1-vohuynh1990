@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    <!-- Flight -->
+    Book
+{% endblock %}
+
+{% block body %}
+    
+    <!-- <h1>Flight Details</h1> -->
+    <h1>Book Details</h1>
+
+    <ul>
+        <li>ISBN: {{ book.isbn }}</li>
+        <li>Title: {{ book.title }}</li>
+        <li>Author: {{ book.author}} </li>
+        <li>Publication year: {{book.year}}
+    </ul>
+
+    <h2>Reviews</h2>
+    <ul>
+        {% for review in reviews %}
+            <li>{{ review.comment }}</li>
+        {% else %}
+            <li>No reviews.</li>
+        {% endfor %}
+    </ul> 
+
+{% endblock %}
