@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Books
+{% endblock %}
+
+{% block body %}
+    <h1>Select Book to Review</h1>
+
+    <form action="{{ url_for('write') }}" method="post">
+
+        <div class="form-group">
+            <select class="form-control" name="book_isbn">
+                {% for book in books %}
+                    <option value="{{ book_isbn }}">{{ book.title }} written by {{ book.author }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div>
+                Rating this book on a scale of 1 to 5: 
+                <input name="scale" type="radio"> 1
+                <input name="scale" type="radio"> 2
+                <input name="scale" type="radio"> 3
+                <input name="scale" type="radio"> 4
+                <input name="scale" type="radio"> 5
+            </div>
+
+        <div class="form-group">
+            <input class="form-control" type="text" name="comment" placeholder="Write Review">
+
+        <div class="fform-group">
+            <button class="btn btn-primary">Submit Review</button>
+        </div>
+
+    </form>
+
+    <div>
+    <a href="{{ url_for('registration') }}"> Go back </a> <!-- <button type="submit" class="btn btn-default">Submit</button> </a>  -->
+    </div>
+{% endblock %}
